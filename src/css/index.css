@@ -1,0 +1,16 @@
+h1{
+    font-size:50px;
+    color:brown;
+}
+
+/* 웹폰트 */
+@font-face{src:local("Noto Sans Thin"), local("NotoSans-Thin"), url(./fonts/NotoSans-Thin.eot);src:url(./fonts/NotoSans-Thin.eot?#iefix) format("embedded-opentype"), url(./fonts/NotoSans-Thin.woff2) format("woff2"), url(./fonts/NotoSans-Thin.woff) format("woff");font-weight:100;font-style:normal;font-family:'NotoKrT'}
+@font-face{src:local("Noto Sans Light"), local("NotoSans-Light"), url(./fonts/NotoSans-Light.eot);src:url(./fonts/NotoSans-Light.eot?#iefix) format("embedded-opentype"), url(./fonts/NotoSans-Light.woff2) format("woff2"), url(./fonts/NotoSans-Light.woff) format("woff");font-weight:300;font-style:normal;font-family:'NotoKrL'}
+@font-face{src:local("Noto Sans DemiLight"), local("NotoSans-Light"), url(./fonts/NotoSans-DemiLight.eot);src:url(./fonts/NotoSans-DemiLight.eot?#iefix) format("embedded-opentype"), url(./fonts/NotoSans-DemiLight.woff2) format("woff2"), url(./fonts/NotoSans-DemiLight.woff) format("woff");font-weight:300;font-style:normal;font-family:'NotoKrDL'}
+@font-face{src:local("Noto Sans Regular"), local("NotoSans-Regular"), url(./fonts/NotoSans-Regular.eot);src:url(./fonts/NotoSans-Regular.eot?#iefix) format("embedded-opentype"), url(./fonts/NotoSans-Regular.woff2) format("woff2"), url(./fonts/NotoSans-Regular.woff) format("woff");font-weight:400;font-style:normal;font-family:'NotoKrR'}
+@font-face{src:local("Noto Sans Medium"), local("NotoSans-Medium"), url(./fonts/NotoSans-Medium.eot);src:url(./fonts/NotoSans-Medium.eot?#iefix) format("embedded-opentype"), url(./fonts/NotoSans-Medium.woff2) format("woff2"), url(./fonts/NotoSans-Medium.woff) format("woff");font-weight:500;font-style:normal;font-family:'NotoKrM'}
+@font-face{src:local("Noto Sans Bold"), local("NotoSans-Bold"), url(./fonts/NotoSans-Bold.eot);src:url(./fonts/NotoSans-Bold.eot?#iefix) format("embedded-opentype"), url(./fonts/NotoSans-Bold.woff2) format("woff2"), url(./fonts/NotoSans-Bold.woff) format("woff");font-weight:700;font-style:normal;font-family:'NotoKrB'}
+
+body {
+    font-family:'NotoKrT'
+}
