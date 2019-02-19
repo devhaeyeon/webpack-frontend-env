@@ -1,7 +1,7 @@
 # 개발 환경
 webpack4
 babel7
-handlebar
+템플릿 : handlebar
 
 # 실행 명령어
 ## dev
@@ -31,21 +31,21 @@ npm run build:rc
 
 # 폴더 & 파일 구성
 ```
- |- configs      // webpack.config는 여기에 정의
-  |- webpack.config.common.js  // dev, prod 공통으로 사용할 설정
-  |- webpack.config.dev.js     // 개발 환경에서만 사용할 설정
-  |- webpack.config.prod.js    // 빌드 환경에서만 사용할 설정
- |- dist      // 빌드된 리소스
- |- node_modules 
- |- src          // 개발 resources는 여기에 정의
-    |- font
+|- configs      // webpack.config는 여기에 정의
+    |- webpack.config.common.js  // dev, prod 공통으로 사용할 설정
+    |- webpack.config.dev.js     // 개발 환경에서만 사용할 설정
+    |- webpack.config.prod.js    // 빌드 환경에서만 사용할 설정
+|- dist      // 빌드된 리소스
+|- node_modules 
+|- src          // 개발 resources는 여기에 정의
+    |- fonts
     |- css
         |- scss
     |- images
         |- image.png
     |- js
     |- index.html
- |- package.json   
+|- package.json   
 ```
 ## config에 있는 파일에 대한 설명
 - webpack.config.common.js 이 파일은 dev, prod 둘다 공통으로 사용하는 설정을 모아둔다. 예를 들면, entry나 module(rule/loader, etc..) 등이 여기에 포함된다.
@@ -61,6 +61,13 @@ https://hackernoon.com/a-tale-of-webpack-4-and-how-to-finally-configure-it-in-th
 https://github.com/jantimon/html-webpack-plugin
 
 https://medium.com/@OutOfBedlam/webpack-%EC%86%8C%EA%B0%9C-d595f93d5c28
+
+
+
+# multiple html page guide
+- https://medium.com/a-beginners-guide-for-webpack-2/multi-page-applications-4ae2ebfabc37
+- https://www.ivarprudnikov.com/static-website-multiple-html-pages-using-webpack-plus-github-example/
+- https://stackoverflow.com/questions/33380063/what-is-the-best-way-to-include-babel-polyfill-using-multiple-entry-points
 
 ## 셋팅 관련 이슈 
 이슈 1)
@@ -149,5 +156,6 @@ style-loader을 삭제해준다.
 (https://www.zerocho.com/category/ECMAScript/post/57a830cfa1d6971500059d5a)
 - handlebars-loader : 핸들바 로더
 - handlebar : 핸들바 템플릿
+
 ## npm 패키지
 - cross-env : 환경 변수 주입에서 많이 사용함.

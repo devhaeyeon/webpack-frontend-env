@@ -8,15 +8,12 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const webpackConfigCommon = require('./webpack.config.common');
 
-const fingerprint = +new Date();
-const jsFilename = `bundle.${fingerprint}.js`;
-const cssFilename = `bundle.${fingerprint}.css`;
 console.log('[PHASE]', process.env.PHASE); // phase 를 출력
 
 const webpackConfigProd = {
     mode: process.env.PHASE === 'alpha' ? 'development' : 'production',  // production mode를 사용하면 자동으로 uglify와 minify가 됨.
     output: {
-        filename: jsFilename,
+        filename: 'bundle.[name].[hash:20].js',
         path: path.resolve(__dirname, '../dist/js/') // JS file path를 지정함.
     },
     // style-loader가 제가된 것을 볼 수 있음.
@@ -58,13 +55,16 @@ const webpackConfigProd = {
         }),
         // ejs 템플릿의 JS/CSS 파일명을 치환함.
         new HtmlWebpackPlugin({
-            template: path.join(__dirname, '../src/index.handlebars'),
-            filename: path.join(__dirname, '../dist/index.html'),
-            inject: false,
-            staticResources: {
-                js: `./js/${jsFilename}`,
-                css: `./css/${cssFilename}`
-            }
+            template: 'src/index.handlebars',
+            filename: '../index.html',
+            inject: 'body',
+            chunks : ['index'],
+        }),
+        new HtmlWebpackPlugin({
+            template: 'src/main.ejs',
+            filename: '../main.html',
+            inject: 'body',
+            chunks : ['main'],
         }),
         // 이미지 파일을 복사함.
         new CopyWebpackPlugin([
@@ -75,7 +75,8 @@ const webpackConfigProd = {
         ]),
         // CSS file을 dist폴더로 추출한다.
         new MiniCssExtractPlugin({
-            filename: `../css/${cssFilename}`,
+            filename: "../css/[name].[contenthash].css",
+            chunkFilename: "../css/[id].[contenthash].css"
         })
     ]
 };

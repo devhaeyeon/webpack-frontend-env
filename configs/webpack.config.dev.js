@@ -14,7 +14,7 @@ const webpackConfigDev = {
     // 새로운 경로를 지정하기 때문이다.
     output: {
         path: path.resolve(__dirname, '../src/'),
-        filename: 'bundle.js',
+        filename: 'bundle.[name].[hash:20].js',
         publicPath: '/js'   // 빌드된 JS가 서빙될 path를 지정한다. html의 JS경로와 맞춰주도록 하자.
     },
 
@@ -41,13 +41,18 @@ const webpackConfigDev = {
     },
 plugins: [
         new HtmlWebpackPlugin({
-            template: path.join(__dirname, '../src/index.handlebars'),
-            filename: path.join(__dirname, '../dist/index.html'),
+            template: 'src/index.handlebars',
+            filename: 'index.html',
             inject: true,
             alwaysWriteToDisk: true,
-            staticResources: {
-                js: '/js/bundle.js'
-            }
+            chunks : ['index'],
+        }),
+        new HtmlWebpackPlugin({
+            template: 'src/main.ejs',
+            filename: 'main.html',
+            inject: true,
+            alwaysWriteToDisk: true,
+            chunks : ['main'],
         }),
         new webpack.LoaderOptionsPlugin({
             options: {
